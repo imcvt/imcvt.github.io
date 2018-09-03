@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/9 | 只是一枚老菜鸟的博客</title>
+  <title>ca | 只是一枚老菜鸟的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="describ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="只是一枚老菜鸟的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/index.html">
+  <meta name="description" content="互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：上游调用层，一般是browser或者APP中间反向代理层，nginx下游真实接入集群，web-server，常见web-server的有tomcat，apache 整个访问过程为：browser向daojia.com发起请求DNS服务器将daojia.com解析为外网IP(1.2.3.4)brows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ca">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/ca/index.html">
 <meta property="og:site_name" content="只是一枚老菜鸟的博客">
-<meta property="og:description" content="describ">
+<meta property="og:description" content="互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：上游调用层，一般是browser或者APP中间反向代理层，nginx下游真实接入集群，web-server，常见web-server的有tomcat，apache 整个访问过程为：browser向daojia.com发起请求DNS服务器将daojia.com解析为外网IP(1.2.3.4)brows">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-03T11:42:41.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="只是一枚老菜鸟的博客">
-<meta name="twitter:description" content="describ">
+<meta name="twitter:title" content="ca">
+<meta name="twitter:description" content="互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：上游调用层，一般是browser或者APP中间反向代理层，nginx下游真实接入集群，web-server，常见web-server的有tomcat，apache 整个访问过程为：browser向daojia.com发起请求DNS服务器将daojia.com解析为外网IP(1.2.3.4)brows">
   
     <link rel="alternative" href="/atom.xml" title="只是一枚老菜鸟的博客" type="application/atom+xml">
   
@@ -159,98 +160,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-ca" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      ca
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/03/ca/" class="archive-article-date">
+
+        
+        <a href="/2018/09/03/ca/" class="archive-article-date">
   	<time datetime="2018-09-03T11:41:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/03/ca/">ca</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：<br>上游调用层，一般是browser或者APP<br>中间反向代理层，nginx<br>下游真实接入集群，web-server，常见web-server的有tomcat，apache</p>
+<p>整个访问过程为：<br>browser向daojia.com发起请求<br>DNS服务器将daojia.com解析为外网IP(1.2.3.4)<br>browser通过外网IP(1.2.3.4)访问nginx<br>nginx实施负载均衡策略，常见策略有轮询，随机，IP-hash等<br>nginx将请求转发给内网IP(192.168.0.1)的web-server</p>
+<p>由于http短连接，以及web应用无状态的特性，理论上任何一个http请求落在任意一台web-server都应该得到正常处理（如果必须落在一台，说明架构不合理，不能水平扩展）。</p>
+<p>问题来了，tcp是有状态的连接，客户端和服务端一旦建立连接，一个client发起的请求必须落在同一台tcp-server上，此时如何做负载均衡，如何保证水平扩展呢？<br> <a id="more"></a><br>二、单机法tcp-server</p>
+<p>单个tcp-server显然是可以保证请求一致性：<br>client向tcp.daojia.com发起tcp请求<br>DNS服务器将tcp.daojia.com解析为外网IP(1.2.3.4)<br>client通过外网IP(1.2.3.4)向tcp-server发起请求</p>
+<p>方案的缺点？<br>无法保证高可用。</p>
+<p>三、集群法tcp-server</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>打赏这种事情不存在的<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wxfriend.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+
+      <!-- 添加文章访问量统计 -->
+      <span id="busuanzi_container_site_pv">
+	   &nbsp;| &nbsp;访问量&nbsp;<span id="busuanzi_value_site_pv">0</span>
+      </span>
+      <!-- 添加文章访问量统计结束 -->
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <!-- <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/03/ca/" alt="微信分享二维码">
+    </div> -->
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/03/测试分类/" class="archive-article-date">
-  	<time datetime="2018-09-03T11:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/03/测试分类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">测试分类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/03/测试分类/">测试分类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">emm...</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/09/03/ca/", 
+    sourceId: "ca",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
+
+	
+	  <section id="comments" class="comments">
+	    <style>
+	      .comments{margin:30px;padding:10px;background:#fff}
+	      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+	    </style>
+	    <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "6O8Dvwj0WtraoVL4VslSWQc4-gzGzoHsz",
+            app_key: "GXFUdkhpRVTztVF8ib0Y6MjP",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            avatar: "robohash",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 15
+    });
+</script>
+	  </section>
+	
+
 
 
           </div>
@@ -284,8 +402,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
