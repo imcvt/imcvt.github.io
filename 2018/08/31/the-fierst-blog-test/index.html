@@ -306,9 +306,9 @@
 <div class="page-modal wx-share js-wx-box">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
+    <!-- <div class="wx-qrcode">
       <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/the-fierst-blog-test/" alt="微信分享二维码">
-    </div>
+    </div> -->
 </div>
 
 <div class="mask js-mask"></div>
@@ -317,32 +317,6 @@
     </div>
   </div>
 </article>
-
-<!--载入js，在</body>之前插入即可-->
-<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-    <!--Leancloud 操作库:-->
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <!--Valine 的核心代码库-->
-    <script src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-    <script>
-
-	 window.onload = function() {
-		alert(11);
-	    }
-
-		new Valine({
-		    // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
-		    av: AV, 
-		    el: '#comment',
-		    appid: '6O8Dvwj0WtraoVL4VslSWQc4-gzGzoHsz', // 这里填写上面得到的APP ID
-		    appkey: 'GXFUdkhpRVTztVF8ib0Y6MjP', // 这里填写上面得到的APP KEY
-		    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!', // 留言框占位提示文字
-		});
-	    </script>
-
-    <!--评论显示区，请插入合适的位置-->
-    <div class="comment">123456</div>
-
 
   
 
@@ -367,25 +341,42 @@
   
   
   
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+  
+
+  
+
+  
+
+	
+	  <section id="comments" class="comments">
+	    <style>
+	      .comments{margin:30px;padding:10px;background:#fff}
+	      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+	    </style>
+	    <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
 <script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2018/08/31/the-fierst-blog-test/", 
-    sourceId: "the-fierst-blog-test",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "6O8Dvwj0WtraoVL4VslSWQc4-gzGzoHsz",
+            app_key: "GXFUdkhpRVTztVF8ib0Y6MjP",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            avatar: "robohash",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 15
+    });
 </script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
+	  </section>
+	
 
-  
-
-  
-
-  
-
-  
 
 
           </div>
