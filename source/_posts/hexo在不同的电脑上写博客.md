@@ -4,6 +4,7 @@ date: 2016-08-31 17:22:59
 tags:	#标签注释
 	- hexo
 	- 博客
+	- 随笔
 categories:
 	- cc
 ---
