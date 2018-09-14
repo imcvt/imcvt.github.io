@@ -4,6 +4,7 @@ date: 2016-08-31 17:22:59
 tags:	#标签注释
 	- hexo
 	- 博客
+	- 随笔
 categories:
 	- cc
 ---
@@ -67,4 +68,4 @@ git push --set-upstream origin hexo
 ```
 git clone -b hexo https://github.com/用户名/xxx.github.io.git 
 ```
-11、到此已经完成，实际上hexo d -g部署文件和git add/commit/push 推送更新到分支是两个不同的过程，主分支保存静态文件，hexo分支则保存源文件，只要把源文件取到安装一下hexo环境就可以写博客了~~
+12、到此已经完成，实际上hexo d -g部署文件和git add/commit/push 推送更新到分支是两个不同的过程，主分支保存静态文件，hexo分支则保存源文件，只要把源文件取到安装一下hexo环境就可以写博客了~~
