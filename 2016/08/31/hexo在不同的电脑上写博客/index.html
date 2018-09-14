@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.imcvt.top">
-  <title>只是一枚老菜鸟的博客</title>
+  <title>HEXO在不同的电脑上更新博客 | 只是一枚老菜鸟的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="describ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="只是一枚老菜鸟的博客">
-<meta property="og:url" content="http://www.imcvt.top/page/2/index.html">
+  <meta name="description" content="描述用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，">
+<meta name="keywords" content="hexo,博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO在不同的电脑上更新博客">
+<meta property="og:url" content="http://www.imcvt.top/2016/08/31/hexo在不同的电脑上写博客/index.html">
 <meta property="og:site_name" content="只是一枚老菜鸟的博客">
-<meta property="og:description" content="describ">
+<meta property="og:description" content="描述用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.imcvt.top/images/he/hexobranch.png">
+<meta property="og:updated_time" content="2018-09-14T06:39:15.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="只是一枚老菜鸟的博客">
-<meta name="twitter:description" content="describ">
+<meta name="twitter:title" content="HEXO在不同的电脑上更新博客">
+<meta name="twitter:description" content="描述用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，">
+<meta name="twitter:image" content="http://www.imcvt.top/images/he/hexobranch.png">
   
     <link rel="alternative" href="/atom.xml" title="只是一枚老菜鸟的博客" type="application/atom+xml">
   
@@ -158,104 +162,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-testnewcpu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-hexo在不同的电脑上写博客" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/testnewcpu/">testnewcpu</a>
+    <h1 class="article-title" itemprop="name">
+      HEXO在不同的电脑上更新博客
     </h1>
   
 
         
-        <a href="/2018/09/10/testnewcpu/" class="archive-article-date">
-  	<time datetime="2018-09-10T03:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
+        <a href="/2016/08/31/hexo在不同的电脑上写博客/" class="archive-article-date">
+  	<time datetime="2016-08-31T09:22:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，<a id="more"></a>有没有一种方法可以随时在不同的电脑上更新内容呢，请往下看~~</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>因为master主分支上存的是部署好的静态文件，我们更新内容到博客的时候其实只需要本地有一套源文件即可，解决方法就是创建一个hexo分支出来存放源文件，然后用不同的电脑操作源文件即可，下面是图：</p>
+<p><img src="/images/he/hexobranch.png" alt="“原理图”"></p>
+<h3 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h3><p>1、先配置hexo环境，安装Node.js，然后安装hexo及其模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>2、克隆gitHub上的XXX.github.io项目的文件到本地（需要先配置SSH key，方法自行网上查找）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/用户名/xxx.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>3、删除文件夹里除了.git文件夹的其他所有文件</p>
+<p>4、把源文件hexo文件夹下的所有文件复制过来并把themes文件夹下自定义主题（比如yilia）下的.git文件夹删除，有可能这个.git是隐藏的，找出来删掉，因为自定义主题是从别的github上拉取下来的，一个git仓库不能包含另一个仓库，不然会提交不成功</p>
+<p>5、hexo下有个叫.gitignore的文件，如果没有就输入 touch .gitignore，创建一个</p>
+<p>6、 .gitignore文件里应该是这些内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store </span><br><span class="line">Thumbs.db </span><br><span class="line">db.json </span><br><span class="line">*.log </span><br><span class="line">node_modules/ </span><br><span class="line">public/ </span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure></p>
+<p>7、创建一个叫hexo的分支并切换到这个分支上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexo</span><br></pre></td></tr></table></figure></p>
+<p>8、 提交复制过来的文件到暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br></pre></td></tr></table></figure></p>
+<p>9、 提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;新建分支保存源文件&quot;</span><br></pre></td></tr></table></figure></p>
+<p>10、推送分支到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin hexo</span><br></pre></td></tr></table></figure></p>
+<p>11、以后如果在其他电脑上面用hexo写博客，就直接把创建的分支克隆下来，npm install安装依赖之后就可以用了，克隆分支的操作（-b后面跟的是分支名称，我这里分支名称是hexo，也可以通过设置hexo为默认分支的方法来去掉-b这个命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo https://github.com/用户名/xxx.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>11、到此已经完成，实际上hexo d -g部署文件和git add/commit/push 推送更新到分支是两个不同的过程，主分支保存静态文件，hexo分支则保存源文件，只要把源文件取到安装一下hexo环境就可以写博客了~~</p>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-
-      <!-- 添加文章访问量统计 -->
-	
-      <!-- 添加文章访问量统计结束 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/10/testnewcpu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>打赏这种事情不存在的<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/wxfriend.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ca" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/03/ca/">ca</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/03/ca/" class="archive-article-date">
-  	<time datetime="2018-09-03T11:41:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：<br>上游调用层，一般是browser或者APP<br>中间反向代理层，nginx<br>下游真实接入集群，web-server，常见web-server的有tomcat，apache</p>
-<p>整个访问过程为：<br>browser向daojia.com发起请求<br>DNS服务器将daojia.com解析为外网IP(1.2.3.4)<br>browser通过外网IP(1.2.3.4)访问nginx<br>nginx实施负载均衡策略，常见策略有轮询，随机，IP-hash等<br>nginx将请求转发给内网IP(192.168.0.1)的web-server</p>
-<p>由于http短连接，以及web应用无状态的特性，理论上任何一个http请求落在任意一台web-server都应该得到正常处理（如果必须落在一台，说明架构不合理，不能水平扩展）。</p>
-<p>问题来了，tcp是有状态的连接，客户端和服务端一旦建立连接，一个client发起的请求必须落在同一台tcp-server上，此时如何做负载均衡，如何保证水平扩展呢？<br>
-        
-          <a class="article-more-a" href="/2018/09/03/ca/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -266,7 +236,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		
 		</ul>
@@ -275,89 +249,9 @@
 
       <!-- 添加文章访问量统计 -->
 	
-      <!-- 添加文章访问量统计结束 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/03/ca/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-测试分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/03/测试分类/">测试分类</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/03/测试分类/" class="archive-article-date">
-  	<time datetime="2018-09-03T11:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>互联网架构中，web-server接入一般使用nginx来做反向代理，实施负载均衡。整个架构分三层：<br>上游调用层，一般是browser或者APP<br>中间反向代理层，nginx<br>下游真实接入集群，web-server，常见web-server的有tomcat，apache</p>
-<p>整个访问过程为：<br>browser向daojia.com发起请求<br>DNS服务器将daojia.com解析为外网IP(1.2.3.4)<br>browser通过外网IP(1.2.3.4)访问nginx<br>nginx实施负载均衡策略，常见策略有轮询，随机，IP-hash等<br>nginx将请求转发给内网IP(192.168.0.1)的web-server</p>
-<p>由于http短连接，以及web应用无状态的特性，理论上任何一个http请求落在任意一台web-server都应该得到正常处理（如果必须落在一台，说明架构不合理，不能水平扩展）。</p>
-<p>问题来了，tcp是有状态的连接，客户端和服务端一旦建立连接，一个client发起的请求必须落在同一台tcp-server上，此时如何做负载均衡，如何保证水平扩展呢？<br>
-        
-          <a class="article-more-a" href="/2018/09/03/测试分类/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">emm...</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      <!-- 添加文章访问量统计 -->
+		<span id="busuanzi_container_page_pv">
+		   &nbsp;| &nbsp;访问量&nbsp;<span id="busuanzi_value_page_pv"></span>
+		</span>
 	
       <!-- 添加文章访问量统计结束 -->
 
@@ -367,7 +261,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/categories/cc//" class="article-tag-list-link color3">cc</a>
         		</li>
       		
 		</ul>
@@ -375,16 +269,65 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/03/测试分类/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <!-- <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.imcvt.top/2016/08/31/hexo在不同的电脑上写博客/" alt="微信分享二维码">
+    </div> -->
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -404,13 +347,57 @@
 
 
 
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://www.imcvt.top/2016/08/31/hexo在不同的电脑上写博客/", 
+    sourceId: "hexo在不同的电脑上写博客",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+
   
+	<!-- 添加valine评论支持 -->
+	
+	  <section id="comments" class="comments">
+	    <style>
+	      .comments{margin:30px;padding:10px;background:#fff}
+	      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+	    </style>
+	    <div id="vcomment" class="comment"></div>
+<script src="//cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+   new Valine({
+            av: AV,
+            el: '#vcomment',
+            notify: notify,
+            verify: verify,
+            app_id: "6O8Dvwj0WtraoVL4VslSWQc4-gzGzoHsz",
+            app_key: "GXFUdkhpRVTztVF8ib0Y6MjP",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            avatar: "robohash",
+            avatar_cdn: "https://sdn.geekzu.org/avatar/",
+            pageSize: 15
+    });
+</script>
+	  </section>
+	
+	<!-- 添加valine评论支持结束 -->
+
 
 
           </div>
@@ -443,8 +430,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -512,22 +499,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">emmm...</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">emm...</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
