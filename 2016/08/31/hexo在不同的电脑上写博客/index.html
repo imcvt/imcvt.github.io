@@ -17,7 +17,7 @@
 <meta property="og:description" content="描述用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.imcvt.top/images/he/hexobranch.png">
-<meta property="og:updated_time" content="2018-09-14T06:46:03.814Z">
+<meta property="og:updated_time" content="2018-09-14T06:51:46.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO在不同的电脑上更新博客">
 <meta name="twitter:description" content="描述用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，">
@@ -183,7 +183,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>用hexo+github在家里的电脑上搭建完博客，资源文件都在这台电脑上，<a id="more"></a>有没有一种方法可以随时在不同的电脑上更新内容呢，请往下看~~</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>因为master主分支上存的是部署好的静态文件，我们更新内容到博客的时候其实只需要本地有一套源文件即可，解决方法就是创建一个hexo分支出来存放源文件，然后用不同的电脑操作源文件即可，下面是图：</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>因为master主分支上存的是部署好的静态文件，我们更新内容到博客的时候其实只需要本地有一套源文件，解决方法就是创建一个hexo分支出来存放源文件，然后用不同的电脑操作源文件即可，下面是图：</p>
 <p><img src="/images/he/hexobranch.png" alt="“原理图”"></p>
 <h3 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h3><p>1、先配置hexo环境，安装Node.js，然后安装hexo及其模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <p>2、克隆gitHub上的XXX.github.io项目的文件到本地（需要先配置SSH key，方法自行网上查找）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/用户名/xxx.github.io.git</span><br></pre></td></tr></table></figure></p>
@@ -196,7 +196,7 @@
 <p>9、 提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;新建分支保存源文件&quot;</span><br></pre></td></tr></table></figure></p>
 <p>10、推送分支到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin hexo</span><br></pre></td></tr></table></figure></p>
 <p>11、以后如果在其他电脑上面用hexo写博客，就直接把创建的分支克隆下来，npm install安装依赖之后就可以用了，克隆分支的操作（-b后面跟的是分支名称，我这里分支名称是hexo，也可以通过设置hexo为默认分支的方法来去掉-b这个命令）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo https://github.com/用户名/xxx.github.io.git</span><br></pre></td></tr></table></figure></p>
-<p>11、到此已经完成，实际上hexo d -g部署文件和git add/commit/push 推送更新到分支是两个不同的过程，主分支保存静态文件，hexo分支则保存源文件，只要把源文件取到安装一下hexo环境就可以写博客了~~</p>
+<p>12、到此已经完成，实际上hexo d -g部署文件和git add/commit/push 推送更新到分支是两个不同的过程，主分支保存静态文件，hexo分支则保存源文件，只要把源文件取到安装一下hexo环境就可以写博客了~~</p>
 
       
 
