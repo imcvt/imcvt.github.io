@@ -18,7 +18,7 @@ categories:
 
 ![“原理图”](/images/he/hexobranch.png)
 
-### 具体操作步骤
+### 具体操作步骤(除了4需要复制原电脑中的文件其他都是在新电脑上的操作)
 
 1、先配置hexo环境，安装Node.js，然后安装hexo及其模块
 ```

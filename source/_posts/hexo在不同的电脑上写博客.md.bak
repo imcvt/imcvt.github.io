@@ -64,7 +64,7 @@ git commit -m "新建分支保存源文件"
 ```
 git push --set-upstream origin hexo 
 ```
-11、以后如果在其他电脑上面用hexo写博客，就直接把创建的分支克隆下来，npm install安装依赖之后就可以用了，克隆分支的操作（-b后面跟的是分支名称，我这里分支名称是hexo，也可以通过设置hexo为默认分支的方法来去掉-b这个命令）
+11、以后如果在其他电脑上面用hexo写博客，就直接把创建的分支克隆下来，npm install安装依赖之后就可以用了，克隆分支的操作（-b后面跟的是分支名称，我这里分支名称是hexo）
 ```
 git clone -b hexo https://github.com/用户名/xxx.github.io.git 
 ```
